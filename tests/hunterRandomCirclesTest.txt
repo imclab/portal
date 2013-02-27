@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<canvas id="hunterCanvas" width ="500" height="500" style="border:10px solid #120000">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+
+<script>
+//Main variables go up here
+var importanceMax = 10;
+var canvasWidth = 500;
+var canvasHeight = 500;
+var amountOfCircles = 10;
+var circleX = new Array();
+var circleY = new Array();
+var importance = new Array();
+
+//Set up circle coords
+for (var i=0; i<amountOfCircles; i++)
+{
+	circleX[i] = Math.floor(Math.random()*canvasWidth);
+	circleX[i] = Math.floor(Math.random()*canvasHeight);
+	importance[i] = Math.floor(Math.random()*importanceMax) * 5;
+}
+
+//Draw circles
+function draw()
+{
+	var c=document.getElementById("hunterCanvas");
+	var ctx=c.getContext("2d");
+	for (var i=0; i<amountOfCircles; i++)
+	{ 
+		
+		ctx.beginPath();
+		ctx.arc(circleX[i],circleY[i],importance[i],0,2*Math.PI);
+		ctx.stroke();
+	}
+}
+
+//Main loop
+while(1 > 0)
+{
+	draw();
+}
+
+
+</script> 
+
+</html>
