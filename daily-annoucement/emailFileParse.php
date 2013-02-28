@@ -40,11 +40,11 @@ for($n = 1; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawD
 	//tag inside of it, set  $token = 'D' + $token
 	if(strpos($rawDataArray($ArrayColSelect),"needle") === false) //if the string doesn't have "needle" then it's useful
 	{
-		$colUseless = true;
+		$colUseless = false;
 	}
 	else
 	{
-		$colUseless = false;
+		$colUseless = true;
 	}
 	
 	if($colUseless == true)
