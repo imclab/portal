@@ -16,7 +16,7 @@ $rawData = trim($rawData); 	//takes whitespace out from before+after string
 				//to get back "he", for example.
 				//it trims until it gets a char it can't trim and then stops. )
 
-$rawDataRows = explode($rawDataDelimiter,$rawData); 	//format is (what to use for a new row,what string)
+$rawDataArray = explode($rawDataDelimiter,$rawData); 	//format is (what to use for a new row,what string)
 							//this makes an array with new strings for each newline char
 
 ////
@@ -28,7 +28,12 @@ $rawDataRows = explode($rawDataDelimiter,$rawData); 	//format is (what to use fo
 //and make it into one string
 ////
 
+$numRawDataArray = count($rawDataArray);
 
+for($n = 1; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawDataArray times
+{
+	
+}
 
 /////
 ///
