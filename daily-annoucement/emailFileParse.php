@@ -22,16 +22,40 @@ $rawDataArray = explode($rawDataDelimiter,$rawData); 	//format is (what to use f
 ////
 //after this I need to cycle through ALL of the strings in the array
 //and then find the ones containing the tags that are crap
-//and delete those strings
+//and set up the php to later those strings
+//have them deleted
 //after useless info is deleted, take out tags from useful strings
 //and then take ALL of the array
 //and make it into one string
 ////
 
 $numRawDataArray = count($rawDataArray);
+$arrayColSelect = 0;
+$colUseless = false;
 
 for($n = 1; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawDataArray times
 {
+	
+	//look inside of $rawDataArray($ArrayColSelect) and if it has 1 useless
+	//tag inside of it, set  $token = 'D' + $token
+	if(strpos($rawDataArray($ArrayColSelect),"needle") === false) //if the string doesn't have "needle" then it's useful
+	{
+		$colUseless = true;
+	}
+	else
+	{
+		$colUseless = false;
+	}
+	
+	if($colUseless == true)
+	{
+		//set $rawDataArray($ArrayColSelect)'s token to 'D' + $token
+	}
+	else
+	{
+		//end
+	}
+	$arrayColSelect++
 	
 }
 
