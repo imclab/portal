@@ -10,7 +10,27 @@ $rawDataDelimiter = "\n";					//what to use to cut one string out from another i
 
 $rawData = file_get_contents($filePath); 	//sets the var $rawData to ALL of the data in $filePath
 
-/////	pseudocode to make into code later
+$rawData = trim($rawData); 	//takes whitespace out from before+after string
+				//you can also use 
+				//$he = trim("lol.hello.lol","lo.");
+				//to get back "he", for example.
+				//it trims until it gets a char it can't trim and then stops. )
+
+$rawDataRows = explode($rawDataDelimiter,$rawData); 	//format is (what to use for a new row,what string)
+							//this makes an array with new strings for each newline char
+
+////
+//after this I need to cycle through ALL of the strings in the array
+//and then find the ones containing the tags that are crap
+//and delete those strings
+//after useless info is deleted, take out tags from useful strings
+//and then take ALL of the array
+//and make it into one string
+////
+
+
+
+/////
 ///
 ///  also here's a listing of all of the email tags I could find that define stuff
 /// X is for arbitrary info, O is for useful information, - is for mixed usefulness.
@@ -71,13 +91,6 @@ $rawData = file_get_contents($filePath); 	//sets the var $rawData to ALL of the 
 ///
 //O 'Content-Type: ' //very useful for finding when content begins (right after this!!!)
 ///
-
-
-
-
-
-//$rawDataRows = explode($rawDataDelimiter,$rawData); //format is (what to use for a new row,what string)
-
 
 
 ?>
