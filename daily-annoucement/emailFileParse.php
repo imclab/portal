@@ -66,31 +66,41 @@ function array_tag_keys($array,$keyTagStringArray,$tagString)
 
 $numRawDataArray = count($rawDataArray);
 $arrayColSelect = 0;
+
+//////////////////////////////////////
+         /////CAUTION!!!!/////
+//PHP does not use quotes to define a string, but rather, an apostraphe.
+//Quotes (" as opposed to ') are used INSIDE the string. Por ejemplo (For example), from the PHP Website...
+//// //Outputs: Arnold once said: "I'll be back"
+//// echo 'Arnold once said: "I\'ll be back"';
+//Reference this, as I cannot tell you how much this error gets to me. 
 $arrayUselessWords = array[
-		"Delivered-To:",
-		"X-Recieved:",
-		"Return-Path:",
-		"Recieved-SPF:",
-		"Authentication-Results:",
-		"X-Google-DKIM-Signature:",
-		"X-BeenThere:",
-		"MIME-Version:",
-		"X-Goomoji-Body:",
-		"Message-ID:",
-		"To:",
-		"Bcc:",
-		"X-Gm-Message-State:",
-		"X-Original-Sender:",
-		"X-Original-Authentication-Results:",
-		"Precedence:",
-		"Mailing-list:",
-		"List-ID:",
-		"X-Google-Group-Id:",
-		"List-Post:",
-		"List-Help:",
-		"List-Archive:",
-		"List-Unsubscribe:"
+		'Delivered-To:',
+		'X-Recieved:',
+		'Return-Path:',
+		'Recieved-SPF:',
+		'Authentication-Results:',
+		'X-Google-DKIM-Signature:',
+		'X-BeenThere:',
+		'MIME-Version:',
+		'X-Goomoji-Body:',
+		'Message-ID:',
+		'To:',
+		'Bcc:',
+		'X-Gm-Message-State:',
+		'X-Original-Sender:',
+		'X-Original-Authentication-Results:',
+		'Precedence:',
+		'Mailing-list:',
+		'List-ID:',
+		'X-Google-Group-Id:',
+		'List-Post:',
+		'List-Help:',
+		'List-Archive:',
+		'List-Unsubscribe:'
 		]; //put useless words here, that's all
+		// Just as a point of reference, all this stuff is what is sent through the SMTP server.
+		// For our purposes, we will be skipping over this SOLELY BECAUSE users want the data.
 
 
 /*
@@ -125,13 +135,13 @@ for($n = 0; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawD
 ///
 //- 'Recieved: ' // what IP recieved the mail and when
 ///
-//- 'X-Received: ' //functionally the same as recieved
+//- 'X-Received: ' //functionally the same as recieved. I find this useful sicne it tells whether the data server got this successfully or not. However, you never now.
 ///
 //X 'Return-Path: ' //no clue, useless though.
 ///
 //X 'Recieved-SPF: ' //is sender legit or not
 ///
-//X 'Authentication-Results: ' //who says they're legit
+//X 'Authentication-Results: ' //who says they're legit. Only reason we would use this, I could think, would be for ALL THE HACKS by others here.
 ///
 //X 'X-Google-DKIM-Signature: ' //google sig/metadata, useless
 ///
@@ -143,13 +153,13 @@ for($n = 0; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawD
 ///
 //X 'X-Goomoji-Body: ' //are google emoticons enabled
 ///
-//O 'Date: ' //duh
+//O 'Date: ' //duh 
 ///
 //X 'Message-ID: ' //duh
 ///
 //O 'Subject-ID: ' //subject field
 ///
-//X 'To: ' //who it's sent to other than recipient
+//- 'To: ' //who it's sent to other than recipient. Could be useful in terms of groups. Otherwise, public access deems it not needed. 
 ///
 //X 'Bcc: ' //who the bcc is sent to
 ///
@@ -165,7 +175,7 @@ for($n = 0; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawD
 ///
 //X 'List-ID: ' //useless
 ///
-//X 'X-Google-Group-Id: ' //useless
+//- 'X-Google-Group-Id: ' //Needed for colloquium grouping and, for that matter, advisories and other items.
 ///
 //X 'List-Post: ' //useless
 ///
