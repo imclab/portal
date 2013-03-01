@@ -93,7 +93,7 @@ $arrayUselessWords = array[
 		]; //put useless words here, that's all
 
 
-
+/*
 for($n = 0; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawDataArray times
 {
 	for($whatParse = 0; $whatParse <= count($arrayUselessWords); $whatParse++) 	//cycles thru all of
@@ -113,6 +113,8 @@ for($n = 0; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawD
 	} 					//this is outside because we want to select a different
 	$arrayColSelect = $arrayColSelect + 1;	//array col ONLY AFTER all the words are done being parsed
 }						//in that specific array col
+*/
+
 
 /////
 ///
