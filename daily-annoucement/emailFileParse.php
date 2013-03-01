@@ -58,7 +58,7 @@ function array_tag_keys($array,$keyTagStringArray,$tagString)
 		}							 //we check for a new string
 									 //in the $array
 	$arrayColNum = $arrayColNum + 1; //so that we check a new col in the
-	$keyTagStringArrayColNum = ;	 //whole array and also reset the col
+	$keyTagStringArrayColNum = 0;	 //whole array and also reset the col
 					 //to use for the strings to check
 	}				 
 }
