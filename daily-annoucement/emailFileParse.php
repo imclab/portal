@@ -39,8 +39,33 @@ function array_change_key(&$array,$old_key,$new_key)
 
 $numRawDataArray = count($rawDataArray);
 $arrayColSelect = 0;
-$colUseless = false;
-$arrayUselessWords = array["Delivered-To:", "string2"]; //put useless words here
+$arrayUselessWords = array[
+		"Delivered-To:",
+		"X-Recieved:",
+		"Return-Path:",
+		"Recieved-SPF:",
+		"Authentication-Results:",
+		"X-Google-DKIM-Signature:",
+		"X-BeenThere:",
+		"MIME-Version:",
+		"X-Goomoji-Body:",
+		"Message-ID:",
+		"To:",
+		"Bcc:",
+		"X-Gm-Message-State:",
+		"X-Original-Sender:",
+		"X-Original-Authentication-Results:",
+		"Precedence:",
+		"Mailing-list:",
+		"List-ID:",
+		"X-Google-Group-Id:",
+		"List-Post:",
+		"List-Help:",
+		"List-Archive:",
+		"List-Unsubscribe:"
+		]; //put useless words here, that's all
+
+
 
 for($n = 0; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawDataArray times
 {
@@ -52,25 +77,15 @@ for($n = 0; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawD
 		if(strpos($rawDataArray($ArrayColSelect),$arrayUselessWords($whatParse)) === true) 	//if the string in the selected col of
 													//the plaintext rawdata array
 		{											//has the array string
-			$colUseless = false;								//hat corresponds to that col
+			end;										//that corresponds to that col
 		}
 		else
-		{
-			$colUseless = true;
-		}
-		
-		if($colUseless == true)
 		{
 			array_change_key($rawDataArray, $arrayColSelect, "D" + $arrayColSelect);
 		}
-		else
-		{
-			end;
-		}
-		
 	} 					//this is outside because we want to select a different
-	$arrayColSelect = $arrayColSelect + 1;	//array col AFTER all the words are done being parsed
-}
+	$arrayColSelect = $arrayColSelect + 1;	//array col ONLY AFTER all the words are done being parsed
+}						//in that specific array col
 
 /////
 ///
@@ -89,7 +104,7 @@ for($n = 0; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawD
 ///
 //X 'Authentication-Results: ' //who says they're legit
 ///
-//X X-Google-DKIM-Signature: ' //google sig/metadata, useless
+//X 'X-Google-DKIM-Signature: ' //google sig/metadata, useless
 ///
 //X 'X-BeenThere: ' //who got it and forwarded it
 ///
