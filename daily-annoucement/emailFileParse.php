@@ -6,8 +6,8 @@ $filePath = "normal-email-exampleformatting.txt"; 		//file path, format is c:\\f
 $rawDataDelimiter = "\n";					//what to use to cut one string out from another into diff. rows
 								//i.e. if we see the string HELLO.I.AM.SEXY and
 								//we use "." as the delimiter, the array will be
-								//["HELLO","I","AM","SEXY"]	
-
+								//["HELLO","I","AM","SEXY"]
+								
 $rawData = file_get_contents($filePath); 	//sets the var $rawData to ALL of the data in $filePath
 
 $rawData = trim($rawData); 	//takes whitespace out from before+after string
@@ -29,34 +29,47 @@ $rawDataArray = explode($rawDataDelimiter,$rawData); 	//format is (what to use f
 //and make it into one string
 ////
 
+function array_change_key(&$array,$old_key,$new_key)
+{
+	$array[$new_key] = $array[$old_key];
+	unset($array[$old_key]);
+	return;
+}
+
+
 $numRawDataArray = count($rawDataArray);
 $arrayColSelect = 0;
 $colUseless = false;
+$arrayUselessWords = array["Delivered-To:", "string2"]; //put useless words here
 
-for($n = 1; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawDataArray times
+for($n = 0; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawDataArray times
 {
-	
-	//look inside of $rawDataArray($ArrayColSelect) and if it has 1 useless
-	//tag inside of it, set  $token = 'D' + $token
-	if(strpos($rawDataArray($ArrayColSelect),"needle") === false) //if the string doesn't have "needle" then it's useful
-	{
-		$colUseless = false;
-	}
-	else
-	{
-		$colUseless = true;
-	}
-	
-	if($colUseless == true)
-	{
-		//set $rawDataArray($ArrayColSelect)'s token to 'D' + $token
-	}
-	else
-	{
-		//end
-	}
-	$arrayColSelect++
-	
+	for($whatParse = 0; $whatParse <= count($arrayUselessWords); $whatParse++) 	//cycles thru all of
+	{										//the words in the
+											//arrayuseless array
+											//for count(arrayuseless) times
+
+		if(strpos($rawDataArray($ArrayColSelect),$arrayUselessWords($whatParse)) === true) 	//if the string in the selected col of
+													//the plaintext rawdata array
+		{											//has the array string
+			$colUseless = false;								//hat corresponds to that col
+		}
+		else
+		{
+			$colUseless = true;
+		}
+		
+		if($colUseless == true)
+		{
+			array_change_key($rawDataArray, $arrayColSelect, "D" + $arrayColSelect);
+		}
+		else
+		{
+			end;
+		}
+		
+	} 					//this is outside because we want to select a different
+	$arrayColSelect = $arrayColSelect + 1;	//array col AFTER all the words are done being parsed
 }
 
 /////
