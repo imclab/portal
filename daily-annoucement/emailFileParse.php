@@ -36,6 +36,33 @@ function array_change_key(&$array,$old_key,$new_key)
 	return;
 }
 
+function array_tag_keys($array,$keyTagStringArray,$tagString)
+{
+	$keyTagStringArrayColNum = 0;
+	$arrayColNum = 0;
+	
+	for($n = 0; $n <= count($array); $n++)
+	{
+		for($s = 0; $s <= count($keyTagStringArray); $s++)
+		{
+			if(strpos($array($arrayColNum),$keyTagStringArray($keyTagStringArrayColNum)))
+			{
+				array_change_key($array,$arrayColNum,$tagString + $arrayColNum);
+			}
+			else
+			{
+				end;
+			}
+			
+		$keyTagStringArrayColNum = $keyTagStringArrayColNum + 1; //<--	//so when we check again
+		}							 //we check for a new string
+									 //in the $array
+	$arrayColNum = $arrayColNum + 1; //so that we check a new col in the
+	$keyTagStringArrayColNum = ;	 //whole array and also reset the col
+					 //to use for the strings to check
+	}				 
+}
+
 
 $numRawDataArray = count($rawDataArray);
 $arrayColSelect = 0;
@@ -81,7 +108,7 @@ for($n = 0; $n <= $numRawDataArray; $n++) //execute the inside code for $numRawD
 		}
 		else
 		{
-			array_change_key($rawDataArray, $arrayColSelect, "D" + $arrayColSelect);
+			array_change_key($rawDataArray, $arrayColSelect, "D" + $arrayColSelect); //'tagging' with D
 		}
 	} 					//this is outside because we want to select a different
 	$arrayColSelect = $arrayColSelect + 1;	//array col ONLY AFTER all the words are done being parsed
