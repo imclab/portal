@@ -1,61 +1,68 @@
-
 <!DOCTYPE html>
 <html>
 
-
-<canvas id="hunterCanvas" width ="500" height="500" style="border:10px solid #120000">
+<canvas width="512" height="512" id="hunterCanvas" style="border: 10px solid rgb(18, 0, 0);">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 
 <script>
-//Main variables go up here
-var importanceMax = 10;
-var canvasWidth = 500;
-var canvasHeight = 500;
-var amountOfCircles = 10;
+//Main variables here
+var importanceMax = 8;
+var canvasWidth = 512;
+var canvasHeight = 512;
+var amountOfCircles = 8;
 var circleX = new Array();
 var circleY = new Array();
 var importance = new Array();
 
 //Set up circle coords
-for (var i=0; i<amountOfCircles; i++)
+for (var i = 0; i < amountOfCircles; i++)
 {
-	circleX[i] = Math.floor(Math.random()*canvasWidth);
-	circleY[i] = Math.floor(Math.random()*canvasHeight);
-	importance[i] = Math.floor(Math.random()*importanceMax) * 5;
+	circleX[i] = Math.floor(Math.random() * canvasWidth);
+	circleY[i] = Math.floor(Math.random() * canvasHeight);
+	importance[i] = Math.floor(Math.random() * importanceMax) * 5;
 }
 
-//Fill Canvas with light blue
-var c=document.getElementById("hunterCanvas");
-var ctx=c.getContext("2d");
-ctx.fillStyle="#72C0F3";
-ctx.fillRect(0,0,canvasWidth,canvasHeight);
-
-//Draw circle vars
-var c=document.getElementById("hunterCanvas");
-var ctx=c.getContext("2d");
-
-
-//Move circles (not working?)
-for (var i=0; i<amountOfCircles; i++)
+//Prevent overlapping circles (I don't think this is working)
+for (var i = 0; i < amountOfCircles; i++)
 {
-	circleX[i] += Math.floor(Math.random());
-	//circleX[i] -= Math.floor(Math.random());
-	circleY[i] += Math.floor(Math.random());
-	//circleY[i] -= Math.floor(Math.random());
+	for (var ii = 0; ii < amountOfCircles; ii++)
+	{
+		if( Math.sqrt( Math.pow(circleX[ii] - circleX[i], 2) + Math.pow(circleY[ii] - circleY[i], 2) ) < ( importance[i] + importance[ii] ) ) 
+		{ 
+			circleX[i] = Math.floor(Math.random() * canvasWidth);
+			circleY[i] = Math.floor(Math.random() * canvasHeight);
+		}
+	}
+
+	 
+
 }
 
+//Fill Canvas with very light blue
+var c = document.getElementById("hunterCanvas");
+var ctx = c.getContext("2d");
+ctx.fillStyle = "#CCFFFF";
+ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+//Create circle variables
+var c = document.getElementById("hunterCanvas");
+var ctx = c.getContext("2d");
 
 //Draw circles
-for (var ii=0; ii<amountOfCircles; ii++)
+for (var i = 0; i < amountOfCircles; i++)
 { 
 	ctx.beginPath();
-	ctx.arc(circleX[ii],circleY[ii],importance[ii],0,2*Math.PI);
+	ctx.arc(circleX[i], circleY[i], importance[i], 0, 2*Math.PI);
+	ctx.fillStyle = '#5093EB';
+	ctx.fill();
+	ctx.lineWidth = 3;
+	ctx.strokeStyle = '#003300';
 	ctx.stroke();
 }
 
 
 </script> 
-
 </html>
+
