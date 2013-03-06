@@ -10,20 +10,24 @@ $rawData = trim($rawData);								//takes whitespace out from before+after strin
 
 $rawDataArray = explode("\n",$rawData);					//makes an array with each col a new line
 
-for($arrayColNum = 0; $arrayColNum <= count($rawDataArray); $arrayColNum++)	//for how long $rawDataArray is, do {stuff}
-{																			//and add 1 to $arrayColNum
-		
-		if(strpos($rawDataArray($arrayColNum),"Content-Type: ") == true)	// if you find "Content-Type: " in the (1 thru N)
-		{																	// then (...)
-		
-			for($i = 0; $i <= $rawDataArray($arrayColNum); $i++)		//from 0 to where the useless string is, do {stuff}
-			{															//and then plus 1 to $arrayColNum
-				array_fill($arrayColNum, 1, "");							//fill with blankness from $arrayColNum and do it 1x
+
+function arrayDelBefore($array,$string)				//a function for doing the below things
+{
+
+	for($arCol = 0; $arCol <= count($array); $arCol++)	//for how long $rawDataArray is, do {stuff}
+	{													//and add 1 to $arCol
+			
+			if(strpos($array($arCol),$string) == true)	// if you find $string in the (1 thru N)
+			{															// then (...)
+			
+				for($i = 0; $i <= $array($arCol); $i++)		//from 0 to where the useless string is, do {stuff}
+				{														//and then plus 1 to $arCol
+					array_fill($arCol, 1, "");							//fill with blankness from $arCol and do it 1x
+				}
+			
 			}
-		
-		}
+	}
+
 }
-
-
 
 ?>
