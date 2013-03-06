@@ -1,0 +1,46 @@
+body
+{
+	text-align:center;
+	background-color:#000;
+	font-family:"Lucida Console", Monaco, monospace;
+	color:#FFF;
+}
+
+#divContainer
+{
+	width:970px;
+	height:700px;
+	margin:auto;
+	margin-top:30px;
+	text-align:left;
+	padding-left:30px;
+	padding-top:30px;
+	background-color:#1E1E1E;
+}
+
+#divStats
+{
+	text-align:left;
+	vertical-align:top;
+	width:100%;
+	height:100%;
+}
+
+#divForm1Container
+{
+	width:485px;
+	height:700px;
+	position:relative;
+}
+
+#divForm2Container
+{
+	width:auto;
+	height:100%;
+	position:relative;
+}
+
+#cr
+{
+	display:none;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Amazon Ripoff #657</title>
+		<link rel="stylesheet" type="text/css" href="index.css" />
+	</head>
+	
+	<body>
+	<script language="javascript" src="index.js"></script>
+<!-- 
+PopCorn Sale -- Modify the Popcorn Sales form to include:
+A subtotal column for the each order item with default set to blank.  Each subtotal can either be updated instantly as user typed in the quantity column, or preferably, be updated together when the user clicks on the update button. Eitherway, data entry [quantity] must be validated; prompt the user if invalid-- you may use DW behaviors, but I recommend coding yourself and it is not challenging at all.
+A charge row/field that will impose a 10% transaction fee if credit card is chosen.  Check has no transaction fee.
+A [grand] total row that sums all subtotal and charge
+JS and html must be appropriately commented and formatted with appropriate page layout
+-->
+		<div id="divContainer" align="center">
+		
+			<table id="tableFormContainer">
+			
+				<tr>
+					<td>
+			
+						<form action="mailto:HenryFBP@gmail.com?subject=New Order" method="post" enctype="application/x-www-form-urlencoded" name="order">
+						
+						
+							<table>
+							
+								<tr>
+									<td colspan="2" align="center"><b>Club Popcorn Sales</b></td>
+								</tr>
+									
+								<tr>
+									<td>Buyer Name:</td>
+									<td><input type="text" name="name" width="100%" required/></td>
+								</tr>
+								
+								<tr>
+									<td>State:</td>
+									<td><input type="text" name="state" width="100%" required/></td>
+								</tr>
+								
+								<tr>
+									<td>City:</td>
+									<td><input type="text" name="city" width="100%" required/></td>
+								</tr>
+								
+								<tr>
+									<td>Zip:</td>
+									<td><input type="text" name="zip" width="100%" required/></td>
+								</tr>
+					
+								<tr>
+									<td>Street Address:</td>
+									<td><input type="text" name="address" width="100%" required/></td>
+								</tr>
+					
+							</table>
+						
+						<br />
+								<br />
+						
+						<table width="300">
+						
+							<tr>
+								<td colspan="3" align="center"><b>Order Info</b></td>
+							</tr>
+							
+							<tr>
+								<td align="center"><b>Product Name</b></td>
+								<td align="center"><b>Unit Price</b></td>
+								<td align="center"><b>Quantity</b></td>
+							</tr>
+							
+							<tr>
+								<td>Unsalted Popcorn</td>
+								<td>$5.00<br />per 1lb</td>
+								<td><input type="number" name="unsalted" value="0" /></td>
+							</tr>
+							
+							<tr>
+								<td>Salted Popcorn</td>
+								<td>$5.00<br />per 1lb</td>
+								<td><input type="number" name="salted" value="0" /></td>
+							</tr>
+				
+							<tr>
+								<td>Unpopped Popcorn</td>
+								<td>$5.00<br />per 1lb</td>
+								<td><input type="number" name="unpopped" value="0" /></td>
+							</tr>
+										
+						</table>
+						
+						
+						<br />
+						<br />
+						
+						<table><th colspan="2">Payment Method:</th>
+							<tr>
+								<td>
+									<span onClick="crDisplay('cr','block')"> <!-- This is for not having to use 3 whole functions -->
+									<label><input type="radio" name="payment" value="visa" /> Visa </label><br />
+									<label><input type="radio" name="payment" value="discover" /> Paypal </label><br />
+									<label><input type="radio" name="payment" value="mastercard"/> Mastercard </label><br />
+									</span>
+									<label><input type="radio" name="payment" value="check" onClick="crDisplay('cr','none')"/> Check </label><br /><br />
+									<br />
+								</td>
+								<td align="center" width="200">
+										<span id="cr">Credit Card Number:<br /><input type="password" name="creditCard" size="15" value="" /></span>
+								</td>
+							</tr>
+						</table>
+							 
+						<blockquote>
+							<input type="submit" value="Submit your order" name="submission" /> 
+							<input type="reset" value="Clear all fields" name="clear" />
+						</blockquote>
+								
+						</form>
+					
+					</td>
+					
+					<td valign="top" width="2px" bgcolor="#555555"></td>
+					
+					<td width="50%" style="padding-left:10px;" valign="top">
+					
+						<div id="divStats">
+						
+							<form>
+							
+							Press <input type="button" value="this button" onClick="pushToValue(pushArgsAndAdd('5',order.unsalted.value,order.salted.value,order.unpopped.value),'finalprice')" /> to calculate your total (ungraduated) price:
+							
+							$<input type="text" id="finalprice" value="0" readonly /><br/><br/>
+                            
+                            Press this <input type="button" value="other button" onClick="pushToValue(graduateInt(pushArgsAndAdd('5',order.unsalted.value,order.salted.value,order.unpopped.value),'110'),'finalgradprice')" /> to calculate your total (graduated) price:
+                            
+                            $<input type="text" id="finalgradprice" value="0" readonly />
+								
+							</form>
+						
+						</div>
+					
+					</td>
+					
+				</tr>
+				
+			</table>
+		
+		</div>
+		
+	</body>
+</html>

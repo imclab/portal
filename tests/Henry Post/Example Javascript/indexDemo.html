@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Untitled Document</title>
+    </head>
+    
+    <body>
+    
+    
+    	<script language="javascript" type="text/javascript">
+        	function swapContent1(id,textIn)
+			{
+				document.getElementById(id).innerHTML = textIn;
+			}
+			
+			function swapContent2(id,Object)
+			{
+				document.getElementById(id).innerHTML = Object.value;
+			}
+        </script>
+        
+        
+    	<p id="p1">test text</p>
+        <form name="testForm1" >
+        		
+        		<input type="text" name="testBox1" value="test box 1" onkeyup="swapContent1('p1',value)"/><br /><br />
+		        <p>example 2: the object (box1) is sent to object.value and is used to replace the content in the first par</p<br /><br />
+
+        		<input type="text" name="testBox2" value="test box 2" onkeyup="swapContent2('p1',this)"/><br /><br />
+				
+                <input type="button" name="testButton1" value="test button 1" onclick="swapContent1('p1',document.testForm.testBox1.value)"/>
+                
+                <input type="button" name="testButton2" value="test button 2" onclick="swapContent2('p1',testBox2)"/>
+            
+        </form>
+        
+        	    <input type="text" name="testBox1" value="test box 1" onkeyup="swapContent1('p1',value)"/><br /><br />
+		        <p>example 2: the object (box1) is sent to object.value and is used to replace the content in the first par</p<br /><br />
+
+        		<input type="text" name="testBox2" value="test box 2" onkeyup="swapContent2('p1',this)"/><br /><br />
+				
+                <input type="button" name="testButton1" value="test button 1" onclick="swapContent1('p1',document.testForm.testBox1.value)"/>
+                
+                <input type="button" name="testButton2" value="test button 2" onclick="swapContent2('p1',testBox2)"/>
+
+        
+        <form name="testForm2">
+        
+        </form>
+    </body>
+</html>
