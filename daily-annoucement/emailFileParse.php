@@ -10,7 +10,7 @@ $rawData = trim($rawData);								//takes whitespace out from before+after strin
 
 $rawDataArray = explode("\n",$rawData);					//makes an array with each col a new line
 
-for($arrayColNum = 0; $arrayColNum <= count($rawDataArray); $arrayColNum++) //for how long $rawDataArray is, do {stuff}
+for($arrayColNum = 0; $arrayColNum <= count($rawDataArray); $arrayColNum++)	//for how long $rawDataArray is, do {stuff}
 {																			//and add 1 to $arrayColNum
 		
 		if(strpos($rawDataArray($arrayColNum),"Content-Type: ") == true)	// if you find "Content-Type: " in the (1 thru N)
