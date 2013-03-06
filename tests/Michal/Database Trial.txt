@@ -17,7 +17,7 @@ function createDatabase() {
 
 
 
-//This method creates a new onbect store in a database. We can make an object store for each set of data that we need (ex. daily announcements, lost and found, etc.)
+//This method creates a new object store in a database. We can make an object store for each set of data that we need (ex. daily announcements, lost and found, etc.)
 
  
 function createObjectStore() {
