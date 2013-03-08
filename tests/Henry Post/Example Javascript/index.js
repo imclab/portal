@@ -49,20 +49,25 @@ function graduateInt(int,percent) //this is percents, so for 170% of 20 you'd do
 	return graduatedInt;
 }
 
+function trimTailingNum(input,decimalPlaces)
+{
+	var strInput = input;	
+	
+	var arrayNum = new Array();
+	
+	var arrayNum = strInput.toString().split('.'); //makes an array (2 cols) of (i.e. 1.247 would be [1,247]
+	var choppedNum = "0";
+	
+	choppedNum = arrayNum[1].substring(0, decimalPlaces); //makes 2nd array object into a substring starting from 0 to how many decimal places you want!
+	
+	choppedNum = arrayNum[0] + "." + choppedNum; //makes choppednum (now just 24) into 1.24
+	
+	return choppedNum; //duh
+}
+
 function pushToValue(whatPush,whatID)
 {
 	document.getElementById(whatID).value = whatPush;
 }
 
-/*
 
-function trimTailing(input,numTrim) //3 - 2
-{
-	
-	var len = input.length - numTrim
-	var out = "";
-	
-	return out;
-}
-
-*/

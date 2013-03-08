@@ -135,7 +135,7 @@ JS and html must be appropriately commented and formatted with appropriate page 
 							
 							$<input type="text" id="finalprice" value="0" readonly /><br/><br/>
                             
-                            Press this <input type="button" value="other button" onClick="pushToValue(graduateInt(pushArgsAndAdd('5',order.unsalted.value,order.salted.value,order.unpopped.value),'110'),'finalgradprice')" /> to calculate your total (graduated) price:
+                            Press this <input type="button" value="other button" onClick="pushToValue(trimTailingNum(graduateInt(pushArgsAndAdd('5',order.unsalted.value,order.salted.value,order.unpopped.value),'110'),2),'finalgradprice')" /> to calculate your total (graduated) price:
                             
                             $<input type="text" id="finalgradprice" value="0" readonly />
 								
