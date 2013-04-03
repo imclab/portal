@@ -1,5 +1,7 @@
 <?php
 
+require_once('php/autoloader.php'); //SimplePie libraries just being loaded
+
 /*//
 / File for getting information
 / from the verve site. Henry Post.
@@ -23,6 +25,9 @@
 $filepath = "verve-feed.txt"; 	// filepath can also be a website, needs format ending with a filename,
 								// http://www.google.com/ is not acceptable while http:/www.cats.com/index.html is a-ok
 
+
+
+
 function stripHTMLTags($fileName)
 {
 	$fileDataRaw = file_get_contents($fileName);   // turns arg to string
@@ -35,6 +40,6 @@ function stripHTMLTags($fileName)
 
 //	active code goes below, for testing primarily
 
-echo stripHTMLTags($filepath);
+
 
 ?>	
