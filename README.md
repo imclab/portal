@@ -1,8 +1,8 @@
 portal
 ======
 
-HTML based web application that displays real time events happening at Northside Prep
+HTML based web application that will display real time events happening at Northside College Prep. 
 
 ======
 
-For the Verve RSS parser, a library called SimplePie is being used. Link is http://simplepie.org/api/
+SimplePie (simplepie.org/api) is used for the Verve RSS parser. 
