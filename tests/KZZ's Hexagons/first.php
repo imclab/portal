@@ -1,6 +1,6 @@
 <html>
 <body>
-Welcome to Viktor's wepage
+Welcome to Viktor's webpage
 <br/>
 <br/> <!-- -->
 <?php
