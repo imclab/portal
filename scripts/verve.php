@@ -1,6 +1,6 @@
 <?php
 
-require_once('php/autoloader.php'); //SimplePie libraries just being loaded
+require_once('simplepielib/autoloader.php'); //SimplePie libraries just being loaded
 
 /*//
 / File for getting information
