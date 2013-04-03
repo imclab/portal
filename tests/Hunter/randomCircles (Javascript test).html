@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 
-<canvas width="512" height="512" id="hunterCanvas" style="border: 10px solid rgb(18, 0, 0);">
+<canvas width="828" height="512" id="hunterCanvas" style="border: 10px solid rgb(18, 0, 0);">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 
 <script>
 //Main variables here
-var importanceMax = 8;
-var canvasWidth = 512;
+var importanceMax = 16;
+var canvasWidth = 828;
 var canvasHeight = 512;
-var maxAmountOfCircles = 128;
+var maxAmountOfCircles = 16;
 var circleX = new Array();
 var circleY = new Array();
 var importance = new Array();
@@ -22,7 +22,7 @@ var attempts = 0;
 //At the same time, make sure each circle does not collide with the border
 for (var i = 0; i < maxAmountOfCircles; i++)
 {
-	importance[i] = Math.floor(Math.random() * importanceMax) * 5;
+	importance[i] = Math.floor(Math.random() * importanceMax) * 5 + 5 * 4;
 	circleX[i] = Math.floor(Math.random() * (canvasWidth - importance[i] * 2)) + importance[i];
 	circleY[i] = Math.floor(Math.random() * (canvasHeight - importance[i] * 2)) + importance[i];
 	
@@ -43,13 +43,17 @@ for (var i = 0; i < maxAmountOfCircles; i++)
 			circleX[ii] = -9000;
 			circleY[ii] = -9000;
 
-			  //circleX[i] = Math.floor(Math.random() * canvasWidth);
-			  //circleY[i] = Math.floor(Math.random() * canvasHeight);
+			  //circleX[ii] = Math.floor(Math.random() * canvasWidth);
+			  //circleY[ii] = Math.floor(Math.random() * canvasHeight);
 			  //importance[ii] = Math.floor(Math.random() * importanceMax) * 5;
 			
 			  //If for some reason there are over 128 unsucessful attempts to prevent collision, stop attempting
 			  //attempts++;
-			  //if(attempts > 128) {document.writeln("OVERLAP PREVENT FAIL - OVER 128 ATTEMPTS"); break;}
+			  //if(attempts > 128) 
+			  //{
+			  // document.writeln("OVERLAP PREVENT FAIL - OVER 128 ATTEMPTS"); 
+			  //break;
+			  //}
 		}
 
 		  //attempts = 0;
@@ -73,6 +77,7 @@ var ctx = c.getContext("2d");
 for (var i = 0; i < maxAmountOfCircles; i++)
 { 
 	ctx.beginPath();
+	//<DIV style="position: absolute; top: 200px; left: 200px; width: 200px; height: 200px; background-color: red">This is text in a red 200-by-200-pixel box that is 200 pixels from the top and left edges of the window.</DIV> 
 	ctx.arc(circleX[i], circleY[i], importance[i], 0, 2*Math.PI);
 	ctx.fillStyle = '#5093EB';
 	ctx.fill();
@@ -80,6 +85,7 @@ for (var i = 0; i < maxAmountOfCircles; i++)
 	ctx.strokeStyle = '#003300';
 	ctx.stroke();
 }
+document.writeln("Press F5"); 
 
 
 </script> 
