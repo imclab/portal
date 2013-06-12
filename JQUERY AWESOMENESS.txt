@@ -1,6 +1,0 @@
-http://fmarcia.info/jquery/tetris/tetris.html
-http://www.webdesignerwall.com/demo/jquery-css3-rounded-img
-http://demo.tutorialzine.com/2010/06/apple-like-retina-effect-jquery-css/demo.html
-http://codecanyon.net/item/saloon-the-jquery-banner-rotator-plugin/full_screen_preview/1629896
-http://css-tricks.com/examples/Circulate/
-
